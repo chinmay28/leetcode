@@ -25,21 +25,18 @@ using namespace std;
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        
         map<int, int> indexMap;
         vector<int> result;
         
-        for (int i=0; i < nums.size(); i++) {
-
-            int complement = target - nums[i];            
-            if (indexMap.end() != indexMap.find(complement)) {
-                result.push_back(indexMap[complement]);
-                result.push_back(i);
-                break;
-            } else {
-                indexMap[nums[i]] = i;
+        for (int i=0; i<nums.size(); i++) {
+            auto it = indexMap.find(target-nums[i]);
+            if (indexMap.find(target-nums[i]) != indexMap.end()) {
+                result = {it->second, i};
+                return result;
             }
+            indexMap[nums[i]] = i;
         }
+        
         return result;
     }
 };
