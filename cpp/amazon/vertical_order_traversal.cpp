@@ -116,13 +116,8 @@ public:
             pair<int, TreeNode*> node = bfs_queue.front();
             bfs_queue.pop();
             
-            if (tree_map.find(count) == tree_map.end()) {
-                vector<int> placeholder;
-                tree_map[count] = placeholder;
-            }
-            
             if (!node.second)
-                continue;
+                continue;  // node is a null value. skip
                         
             tree_map[node.first].push_back(node.second->val);
             pair<int, TreeNode*> left(node.first - 1, node.second->left);

@@ -24,12 +24,7 @@ public:
     int majorityElement(vector<int>& nums) {
         map<int, int> counts;
         for (int i=0; i<nums.size(); i++) {
-            if (counts.find(nums[i]) == counts.end())
-                counts[nums[i]] = 1;
-            
-            else {
-                counts[nums[i]] += 1;
-            }
+            counts[nums[i]] += 1;
             
             if (counts[nums[i]] > nums.size()/2)
                 return nums[i];

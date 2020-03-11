@@ -34,7 +34,7 @@ public:
     ListNode* kNodeReverse(ListNode* head, int k, ListNode*& last) {
         ListNode* curr = head;
 
-        // dry run
+        // dry run - check if we have k elements at all
         int bkp_k = k;
         while (k-- && curr->next)
             curr = curr->next;
